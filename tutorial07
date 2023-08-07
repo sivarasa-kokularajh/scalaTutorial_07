@@ -1,0 +1,68 @@
+//Q1
+package Tutorial
+import scala.io.StdIn
+
+object Question1 {
+  def main(args: Array[String]): Unit = {
+    print("Enter the list of integers ")
+    val InputString = StdIn.readLine()
+    val InList = InputString.split(",").map(_.trim.toInt).toList
+
+    val output = filterEvenNumbers(InList)
+    println("\n"+output)
+
+  }
+
+  def filterEvenNumbers(numbers:List[Int]):List[Int] = {
+    numbers.filter(num => num%2==0)
+    }
+
+}
+
+//Q2
+package Tutorial
+import scala.io.StdIn
+
+object Question2 {
+  def main(args: Array[String]): Unit = {
+    print("Enter the list of integers  ")
+    val InputString = StdIn.readLine()
+    val InList = InputString.split(",").map(_.trim.toInt).toList
+
+    val output = calculateSquare(InList)
+    println("\n" + output)
+
+  }
+
+  def calculateSquare(numbers: List[Int]): List[Int] = {
+    numbers.map(num =>num*num)
+    }
+
+}
+
+//Q3
+package Tutorial
+import scala.io.StdIn
+
+object Question3 {
+  def main(args: Array[String]): Unit = {
+    print("Enter the list of integers ")
+    val InputString = StdIn.readLine()
+    val InList = InputString.split(",").map(_.trim.toInt).toList
+
+    val output = filterPrime(InList)
+    println("\n" + output)
+  }
+  def filterPrime(numbers: List[Int]): List[Int] = {
+    numbers.filter(ChrckPrime)
+  }
+  def ChrckPrime(number: Int): Boolean = {
+    if (number <= 1) {
+      false
+    } else if (number == 2) {
+      true
+    } else {
+      !(2 to Math.sqrt(number).toInt).exists(i => number % i == 0)
+      }
+    }
+}
